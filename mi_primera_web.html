@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Página Web Personal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+   
+    <header class="navbar">
+      <h2>Lautaro Mayoral</h2>
+      <nav>
+        <ul>
+          <li><button onclick="mostrarSeccion('sobre-mi')">Sobre mí</button></li>          
+          <li><button onclick="mostrarSeccion('horarios')">Horarios</button></li>
+          <li><button onclick="mostrarSeccion('formulario')">Inscripción</button></li>
+          <li><button onclick="mostrarSeccion('contacto')">Contacto</button></li>
+        </ul>
+      </nav>
+    </header>
+
+
+    <main class="contenido">
+
+      <section id="sobre-mi" class="seccion activa">
+        <h2>Sobre mí</h2>
+        <img src="fotoperfil.jpeg" alt="FotoPerfil" class="foto-perfil" />
+        <p>
+          Estudiante avanzado de Ingeniería en Sistemas Informáticos con sólida experiencia en liquidación de sueldos y
+          configuración de sistemas. Me especializo en C#, SQL, .NET, Python y herramientas de análisis como Power BI. 
+         Busco el aprendizaje constante y contribuir activamente en proyectos tecnológicos que me permitan seguir
+          desarrollándome profesionalmente
+        </p>
+        <ul>
+          <li>Me gusta entrenar</li>
+          <li>Me adapto muy facil al cambio.</li>
+          <li>Soy muy comprometido.</li>
+        </ul>
+      </section>
+
+      <section id="contacto" class="seccion">
+        <h2>Contacto</h2>
+        <ul>
+          <li>Mail: lmayoralrrhh@gmail.com</li>
+          <li>Linkedin: <a href="https://www.linkedin.com/in/lautaro-mayoral-a21391288/">Lautaro Mayoral</a></li>
+          <li>GitHub: <a href="https://github.com/Lautaro0812?tab=repositories">Repositorio</a></li>
+        </ul>
+      </section>
+
+      <section id="horarios" class="seccion">
+        <h2>Horario de Clases</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Materia</th>
+              <th>Profesor</th>
+              <th>Horario</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Base de datos avanzada</td>
+              <td>Prof. Herrera</td>
+              <td>Lunes 19:00 - 23:00</td>
+            </tr>
+            <tr>
+              <td>Metodologías ágiles</td>
+              <td>Prof. Brest</td>
+              <td>Martes 19:00 - 23:00</td>
+            </tr>
+            <tr>
+              <td>Arquitecturas Web</td>
+              <td>Prof. Escandell</td>
+              <td>Jueves 19:00 - 23:00</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="formulario" class="seccion">
+        <h2 onclick="alert('¡Hiciste clic en el título!')">Formulario de Inscripción</h2>
+        <form id="formularioReal">
+          <label for="nombre">Nombre:</label><br>
+          <input type="text" id="nombre" name="nombre" required><br><br>
+
+          <label for="correo">Correo electrónico:</label><br>
+          <input type="email" id="correo" name="correo" required><br><br>
+
+          <label>Género:</label><br>
+          <input type="radio" name="genero" value="Masculino"> Masculino<br>
+          <input type="radio" name="genero" value="Femenino"> Femenino<br>
+          <input type="radio" name="genero" value="Otro"> Otro<br><br>
+
+          <label for="materia">Materia favorita:</label><br>
+          <select id="materia" name="materia">
+            <option value="metodologia">Metodologías ágiles</option>
+            <option value="base">Base de datos</option>
+            <option value="web">DesarrolloWeb</option>
+            
+          </select><br><br>
+
+          <button type="submit">Enviar</button>
+        </form>
+        <p id="parrafo" onmouseover="cambiarColor()">Pasá el mouse por acá para cambiar el color.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    function mostrarSeccion(id) {
+      const secciones = document.querySelectorAll('.seccion');
+      secciones.forEach(sec => sec.classList.remove('activa'));
+      document.getElementById(id).classList.add('activa');
+    }
+
+    function cambiarColor() {
+      document.getElementById("parrafo").style.color = "blue";
+    }
+
+    document.getElementById("formularioReal").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Formulario enviado correctamente.");
+    });
+  </script>
+</body>
+</html>
